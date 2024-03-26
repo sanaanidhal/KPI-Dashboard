@@ -8,7 +8,10 @@
 .env
 .env.backup
 .env.production
+<<<<<<< HEAD
 .phpunit.result.cache
+=======
+>>>>>>> bdb526c670e8a430c1ea45b0dcc8df81fc066926
 Homestead.json
 Homestead.yaml
 auth.json

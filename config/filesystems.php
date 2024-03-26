@@ -9,7 +9,11 @@ return [
     |
     | Here you may specify the default filesystem disk that should be used
     | by the framework. The "local" disk, as well as a variety of cloud
+<<<<<<< HEAD
     | based disks are available to your application for file storage.
+=======
+    | based disks are available to your application. Just store away!
+>>>>>>> bdb526c670e8a430c1ea45b0dcc8df81fc066926
     |
     */
 
@@ -20,9 +24,15 @@ return [
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |
+<<<<<<< HEAD
     | Below you may configure as many filesystem disks as necessary, and you
     | may even configure multiple disks for the same driver. Examples for
     | most supported storage drivers are configured here for reference.
+=======
+    | Here you may configure as many filesystem "disks" as you wish, and you
+    | may even configure multiple disks of the same driver. Defaults have
+    | been set up for each driver as an example of the required values.
+>>>>>>> bdb526c670e8a430c1ea45b0dcc8df81fc066926
     |
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |

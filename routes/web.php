@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Models\Post; 
+=======
+
+>>>>>>> bdb526c670e8a430c1ea45b0dcc8df81fc066926
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +19,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
    
     return view('home' );
 });
@@ -46,3 +51,7 @@ Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'authenticate']);
 
 
+=======
+    return view('welcome');
+});
+>>>>>>> bdb526c670e8a430c1ea45b0dcc8df81fc066926
