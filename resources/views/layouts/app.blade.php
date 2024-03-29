@@ -30,8 +30,11 @@
             <main>
                 {{ $slot }}
             </main>
+<<<<<<< HEAD
 
             
+=======
+>>>>>>> bbb6068f068887d273db27617891a41edd835ca7
         </div>
     </body>
 </html>

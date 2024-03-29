@@ -523,10 +523,13 @@ main .btn-send:hover {
 			</div>
 			<div class="data">
 				<div class="content-data">
-					
+					@include('bar-chart', ['data' => $barChartData])
+
+
 				</div>
                 <div class="content-data">
-					
+					@include('pie-chart', ['data' => $pieChartData])
+
 				</div>
                 <div class="content-data">
 					
