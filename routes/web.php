@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
 });
+Route::get('/admin/dashboard', [Chart1Controller::class, 'barChart']);
+Route::get('/admin/dashboard', [Chart2Controller::class, 'pieChart']);
 
 require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function(){
@@ -34,5 +36,4 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
-Route::get('bar-chart', [Chart1Controller::class, 'barChart']);
-Route::get('/pie-chart', [Chart2Controller::class, 'pieChart']);
+

@@ -27,7 +27,9 @@
                 </header>
             @endif
 
-            
+            <main>
+                {{ $slot }}
+            </main>
         </div>
     </body>
 </html>
