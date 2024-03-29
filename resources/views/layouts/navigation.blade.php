@@ -7,19 +7,28 @@
                 <div class="shrink-0 flex items-center">
                     @if(Auth::user()->role ==='admin' )
                     <a href="{{ route('admin.dashboard') }}">
+                    @else
+                    <a href="{{ route('dashboard') }}">
                     @endif
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
+                @if(Auth::user()->role ==='admin' )
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if(Auth::user()->role ==='admin' )
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('dashboard')">
-                    @endif
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('dashboard')">                    
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                @elseif(Auth::user()->role ==='user' )
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">                    
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
