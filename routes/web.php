@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Chart1Controller;
+use App\Http\Controllers\Chart2Controller;
+
 use App\Http\Controllers\AdminController;
+
+
 
 
 Route::get('/', function () {
@@ -28,3 +33,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
 
 });
+
+Route::get('bar-chart', [Chart1Controller::class, 'barChart']);
+Route::get('/pie-chart', [Chart2Controller::class, 'pieChart']);

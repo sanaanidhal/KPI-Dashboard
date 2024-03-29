@@ -648,6 +648,7 @@ main .btn-send:hover {
 			</ul>
 			<div class="info-data">
 				<div class="card">
+					
 				</div>
 				<div class="card">	
 				</div>
