@@ -3,11 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Middleware\Role;
+
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -26,5 +28,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/redirect', [AdminController::class, 'url'])->name('redirect');
 
 });
