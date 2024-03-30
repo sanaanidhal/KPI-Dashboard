@@ -29,3 +29,4 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
 
 });
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
