@@ -661,20 +661,128 @@ main .btn-send:hover {
 				</div>
 			</div>
 			<div class="data">
-				<div class="content-data">
+				<div style="width: 20%" class="content-data">
 					@include('bar-chart', ['data' => $barChartData])
 
 
 				</div>
-                <div class="content-data">
+                <div style="width: 20%" class="content-data">
 					@include('pie-chart', ['data' => $pieChartData])
 
 				</div>
-                <div class="content-data">
-					
+				<div style="width: 20%" class="content-data">
+					<canvas id="myChart0"></canvas>
+					<script>
+						Chart.defaults.global.title.display = true;
+						Chart.defaults.global.title.text = "Nombre de projets externes";
+						Chart.defaults.global.elements.point.radius = 10;
+					</script>
+				
+					<script>
+						var ctx = document.getElementById('myChart0').getContext('2d');
+				
+						var chart = new Chart(ctx, {
+							type: 'line',
+							data: {
+								labels: {!! json_encode($anneesExterne) !!},
+								datasets: [{
+									label: 'Nombre de projets externes',
+									backgroundColor: 'rgba(106, 18, 137, 0.25)',
+									borderColor: 'rgba(106, 18, 137)',
+									data: {!! json_encode($nbresExterne) !!},
+								}]
+							},
+							options: {
+								title: {
+									display: true,
+									text: 'Les projets externes'
+								},
+								plugins: {
+									title: {
+										display: true,
+										text: 'Nombre de projets externes'
+									},
+									legend: {
+										display: true,
+										position: 'top'
+									}
+								},
+								animations: {
+									tension: {
+										duration: 2000,
+										easing: 'linear',
+										from: 1,
+										to: 0,
+										loop: true,
+									}
+								},
+								elements: {
+									point: {
+										radius: 5,
+										backgroundColor: 'rgba(0, 0, 255, 0.5)'
+									}
+								}
+							}
+						});
+					</script>
 				</div>
-                <div class="content-data">
-					
+				
+								
+								<div style="width: 20%" class="content-data">
+					<canvas id="myChart00"></canvas>
+					<script>
+						Chart.defaults.global.title.display = true;
+						Chart.defaults.global.title.text = "Nombre de projets externes";
+						Chart.defaults.global.elements.point.radius = 10;
+					</script>
+				
+					<script>
+						var ctx = document.getElementById('myChart00').getContext('2d');
+				
+						var chart = new Chart(ctx, {
+							type: 'line',
+							data: {
+								labels: {!! json_encode($anneesMobile) !!},
+								datasets: [{
+									label: 'Nombre de projets mobile',
+									backgroundColor: 'rgba(18, 31, 137, 0.25)',
+									borderColor: 'rgba(18, 31, 137)',
+									data: {!! json_encode($nbresMobile) !!},
+								}]
+							},
+							options: {
+								title: {
+									display: true,
+									text: 'Les projets mobiles'
+								},
+								plugins: {
+									title: {
+										display: true,
+										text: 'Les projets mobiles'
+									},
+									legend: {
+										display: true,
+										position: 'top'
+									}
+								},
+								animations: {
+									tension: {
+										duration: 2000,
+										easing: 'linear',
+										from: 1,
+										to: 0,
+										loop: true,
+									}
+								},
+								elements: {
+									point: {
+										radius: 5,
+										backgroundColor: 'rgba(0, 0, 255, 0.5)'
+									}
+								}
+							}
+						});
+					</script>
 				</div>
 				<!--<div class="content-data">
 					<div class="head">

@@ -72,33 +72,47 @@
                                     <div class="auth-form-wrapper px-4 py-5">
                                         <a href="#"
                                             class="noble-ui-logo logo-light d-block mb-2">Supcom<span>JE</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                        <form class="forms-sample" method="POST" action="{{ route('login') }}">
+                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Register your account.</h5>
+                                        <form class="forms-sample" method="POST" action="{{ route('register') }}">
                                           @csrf
+                                                  <!-- Name -->
+                                          <div class="mb-3">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" name='name' id="name"
+                                                placeholder="Name">
+                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                        </div>
 
+                                                <!-- Email Address -->
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email address</label>
                                                 <input type="email" class="form-control" name='email' id="email"
                                                     placeholder="Email">
+                                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             </div>
+                                                    <!-- Password -->
                                             <div class="mb-3">
-                                                <label for="userPassword" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Password</label>
                                                 <input type="password" class="form-control" id="password" name='password'
                                                     autocomplete="current-password" placeholder="Password">
+                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                             </div>
-                                            <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">
-                                                    Remember me
-                                                </label>
+                                                    <!-- Confirm Password -->
+                                            <div class="mb-3">
+                                                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="password_confirmation" name='password_confirmation'
+                                                    autocomplete="current-password" placeholder="Password">
+                                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                             </div>
+                                            
                                             <div>
                                                 <button type="submit"
                                                     class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                    Login
+                                                    Register
                                             </div>
-                                            <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Not a user? Sign
-                                                up</a>
+                                            <a href="{{ route('login') }}" class="d-block mt-3 text-muted">Already registered? Sign
+                                                in</a>
                                         </form>
                                     </div>
                                 </div>

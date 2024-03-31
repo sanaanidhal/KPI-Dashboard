@@ -8,6 +8,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Models\Premier;
 use App\Models\Second;
+use App\Models\Externe ;
+use App\Models\mobile ;
 
 class AdminController extends Controller
 {
@@ -67,7 +69,18 @@ class AdminController extends Controller
             'data' => [$html, $css, $php, $laravel],
         ];
 
-        return view('admin.admin_dashboard', compact('barChartData', 'pieChartData'));
+        $donneesExterne = Externe::all();
+    $donneesMobile = Mobile::all();
+    
+    $anneesExterne = $donneesExterne->pluck('année')->toArray();
+    $nbresExterne = $donneesExterne->pluck('nbre')->toArray();
+    $anneesMobile = $donneesMobile->pluck('année0')->toArray();
+    $nbresMobile = $donneesMobile->pluck('nbre1')->toArray();
+
+
+    
+
+return view('admin.admin_dashboard', compact('barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
     }
     
     public function AdminLogout(Request $request){

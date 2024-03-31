@@ -8,6 +8,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Models\Premier;
 use App\Models\Second;
+use App\Models\Externe ;
+use App\Models\mobile ;
 
 class UserController extends Controller
 {
@@ -68,6 +70,17 @@ $pieChartData = [
     'data' => [$html, $css, $php, $laravel],
 ];
 
-return view('dashboard', compact('barChartData', 'pieChartData'));
+$donneesExterne = Externe::all();
+    $donneesMobile = Mobile::all();
+    
+    $anneesExterne = $donneesExterne->pluck('année')->toArray();
+    $nbresExterne = $donneesExterne->pluck('nbre')->toArray();
+    $anneesMobile = $donneesMobile->pluck('année0')->toArray();
+    $nbresMobile = $donneesMobile->pluck('nbre1')->toArray();
+
+
+    
+
+return view('dashboard', compact('barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
 }
 }
