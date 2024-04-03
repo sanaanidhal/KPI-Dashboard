@@ -171,6 +171,7 @@ li {
 #sidebar.hide:hover .ads {
 	display: block;
 }
+
 #sidebar .ads .wrapper {
 	background: var(--grey);
 	padding: 20px;
@@ -561,6 +562,28 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
+
+
+main .btn-upgrade {
+	font-size: 13px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px ;
+	color: var(--light);
+	background: var(--blue);
+	transition: all .3s ease;
+	border-radius: 5px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	margin-left: 80%;
+	width: 15%;	
+
+}
+main .btn-upgrade:hover {
+	background: var(--dark-blue);	
+}
+
 /* MAIN */
 /* CONTENT */
 
@@ -589,7 +612,11 @@ main .btn-send:hover {
 	<section id="sidebar">
 		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+			@if(Auth::user()->role ==='admin' )
+			<li><a href="{{route('admin.dashboard')}}" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+			@elseif(Auth::user()->role ==='user' )
+			<li><a href="{{route('dashboard')}}" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+			@endif
 			<li class="divider" data-text="main">Main</li>
 			<li>
 				<a href="#"><i class='bx bxs-inbox icon' ></i> Elements <i class='bx bx-chevron-right icon-right' ></i></a>
@@ -662,15 +689,27 @@ main .btn-send:hover {
 			</div>
 			<div class="data">
 				<div style="width: 20%" class="content-data">
+				
+						<div class="wrapper">
+							<a href="{{ route('admin.edit.barchart') }}" class="btn-upgrade">Edit</a>
+						</div>
+					
 					@include('bar-chart', ['data' => $barChartData])
-
+					
+					
 
 				</div>
                 <div style="width: 20%" class="content-data">
+					<div class="wrapper">
+						<a href="{{ route('admin.edit.piechart') }}" class="btn-upgrade">Edit</a>
+					</div>
 					@include('pie-chart', ['data' => $pieChartData])
 
 				</div>
 				<div style="width: 20%" class="content-data">
+					<div class="wrapper">
+						<a href="#" class="btn-upgrade">Edit</a>
+					</div>
 					<canvas id="myChart0"></canvas>
 					<script>
 						Chart.defaults.global.title.display = true;
@@ -729,6 +768,9 @@ main .btn-send:hover {
 				
 								
 								<div style="width: 20%" class="content-data">
+									<div class="wrapper">
+										<a href="#" class="btn-upgrade">Edit</a>
+									</div>
 					<canvas id="myChart00"></canvas>
 					<script>
 						Chart.defaults.global.title.display = true;

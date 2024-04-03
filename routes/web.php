@@ -29,6 +29,14 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
 
+    Route::get('/edit/barchart', [AdminController::class, 'EditBarChart'])->name('admin.edit.barchart');
+    Route::patch('/update/barchart/{id}', [AdminController::class, 'UpdateBarChart'])->name('admin.update.barchart');
+
+    Route::get('/edit/piechart', [AdminController::class, 'EditPieChart'])->name('admin.edit.piechart');
+    Route::patch('/update/piechart/{id}', [AdminController::class, 'UpdatePieChart'])->name('admin.update.piechart');
+
+
+
 });
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 

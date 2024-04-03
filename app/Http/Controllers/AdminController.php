@@ -11,8 +11,44 @@ use App\Models\Second;
 use App\Models\Externe ;
 use App\Models\mobile ;
 
+
 class AdminController extends Controller
 {
+
+    public function EditBarChart(Premier $premier){
+        $premiers = Premier::all();
+        return view('admin.edit.edit_barchart', compact('premiers','premier'));
+    }
+    public function UpdateBarChart(Request $request, $id)
+    {
+       $premier = Premier::find($id);
+       $premier->completed_on_time = $request->input('completed_on_time');
+       $premier->total_tasks = $request->input('total_tasks');
+       $premier->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+
+    public function EditPieChart(Second $second){
+        $seconds = Second::all();
+        return view('admin.edit.edit_piechart', compact('seconds','second'));
+    }
+    public function UpdatePieChart(Request $request, $id)
+    {
+       $second = Second::find($id);
+
+       $second->note = $request->input('note');
+       $second->notemax = $request->input('notemax');
+
+       $second->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+
+
+
     public function AdminDashboard(){
 
                 // Fetch data for bar chart
@@ -97,6 +133,4 @@ return view('admin.admin_dashboard', compact('barChartData', 'pieChartData','ann
         return view('admin.admin_login');
     
     }
- 
 }
-
