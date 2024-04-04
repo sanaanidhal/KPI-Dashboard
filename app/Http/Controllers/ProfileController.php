@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use App\Http\Requests\Auth\LoginRequest;
-
 
 class ProfileController extends Controller
 {
@@ -58,23 +56,5 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
-    }
-    public function url(LoginRequest $request) : RedirectResponse
-    {
-
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        $url = '';
-        if($request->user()->email === 'admin'){
-            $url = '/admin/dashboard';
-        } elseif($request->user()->role === 'user'){
-            $url ='/dashboard';
-
-        }
-
-        return redirect()->intended($url);
-
     }
 }
