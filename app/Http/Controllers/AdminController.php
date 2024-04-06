@@ -12,6 +12,7 @@ use App\Models\Externe ;
 use App\Models\Mobile ;
 
 
+
 class AdminController extends Controller
 {
 
@@ -160,7 +161,7 @@ return view('admin.admin_dashboard', compact('barChartData', 'pieChartData','ann
     }
     public function AdminLogin(){
 
-        return view('admin.admin_login');
+        return view('admin.admin_login2');
     
     }
 }
