@@ -62,12 +62,12 @@ class AdminController extends Controller
        
     }
     public function EditExterne(Externe $externe){
-        $externe = Externe::all();
+        $externes = Externe::all();
         return view('admin.edit.edit_externe', compact('externes','externe'));
     }
     public function UpdateExterne(Request $request, $année)
     {
-       $externes= Externe::find($année);
+       $externe= Externe::find($année);
 
        $externe->nbre= $request->input('nbre');
 

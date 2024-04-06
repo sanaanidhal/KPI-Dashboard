@@ -708,7 +708,7 @@ main .btn-upgrade:hover {
 				</div>
 				<div style="width: 20%" class="content-data">
 					<div class="wrapper">
-						<a href="#" class="btn-upgrade">Edit</a>
+						<a href="{{ route('admin.edit.externe') }}" class="btn-upgrade">Edit</a>
 					</div>
 					<canvas id="myChart0"></canvas>
 					<script>
@@ -769,7 +769,7 @@ main .btn-upgrade:hover {
 								
 								<div style="width: 20%" class="content-data">
 									<div class="wrapper">
-										<a href="#" class="btn-upgrade">Edit</a>
+										<a href="{{ route('admin.edit.mobile') }}" class="btn-upgrade">Edit</a>
 									</div>
 					<canvas id="myChart00"></canvas>
 					<script>

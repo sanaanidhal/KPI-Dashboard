@@ -34,9 +34,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/edit/piechart', [AdminController::class, 'EditPieChart'])->name('admin.edit.piechart');
     Route::patch('/update/piechart/{id}', [AdminController::class, 'UpdatePieChart'])->name('admin.update.piechart');
-    Route::get('/edit/mobile', [AdminController::class, 'EditMobile'])->name('admin.update.mobile');
-    Route::patch('/update/mobile/{année0}', [AdminController::class, 'UpdateMobile'])->name('admin.update.externe');
-    Route::get('/edit/externe', [AdminController::class, 'EditExterne'])->name('admin.update.externes');
+    Route::get('/edit/mobile', [AdminController::class, 'EditMobile'])->name('admin.edit.mobile');
+    Route::patch('/update/mobile/{année0}', [AdminController::class, 'UpdateMobile'])->name('admin.update.mobile');
+    Route::get('/edit/externe', [AdminController::class, 'EditExterne'])->name('admin.edit.externe');
     Route::patch('/update/externe/{année}', [AdminController::class, 'UpdateExterne'])->name('admin.update.externe');
 
 
