@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style='background-color:#1775F1;'>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -74,7 +74,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type='submit' class="btn btn-primary btn-user btn-block">
+                                        <button type='submit'style='background-color:#1775F1;' class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         {{-- <hr>
