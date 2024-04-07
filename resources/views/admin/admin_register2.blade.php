@@ -20,9 +20,12 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('../../../assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{ asset('../../../assets/images/sje.png') }}" />
+
+
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-color:#1775F1;">
 
     <div class="container">
         <main class="py-4">
@@ -84,7 +87,7 @@
                                                     class="form-control form-control-user" name="password_confirmation"
                                                     required autocomplete="new-password" placeholder="confirm password">
                                             </div>
-                                            <button class="btn btn-primary btn-user btn-block">
+                                            <button style='background-color:#1775F1;' class="btn btn-primary btn-user btn-block">
                                                 Register
                                             </button>
                                             {{-- <hr>

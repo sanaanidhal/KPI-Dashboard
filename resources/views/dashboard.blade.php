@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
-	<title>AdminSite</title>
+	<link rel="shortcut icon" href="{{ asset('../../../assets/images/sje.png') }}" />
+	<title>SupcomJE - Dashboard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
@@ -661,12 +662,12 @@ main .btn-send:hover {
 				</div>
 			</div>
 			<div class="data">
-				<div style="width: 20%" class="content-data">
+				<div style="width: 55%;" class="content-data">
 					@include('bar-chart', ['data' => $barChartData])
 
 
 				</div>
-                <div style="width: 20%" class="content-data">
+                <div style="max-width: 35% ;min-width:35%;" class="content-data">
 					@include('pie-chart', ['data' => $pieChartData])
 
 				</div>

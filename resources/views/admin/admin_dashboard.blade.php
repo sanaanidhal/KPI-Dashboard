@@ -689,7 +689,7 @@ main .btn-upgrade:hover {
 				</div>
 			</div>
 			<div class="data">
-				<div style="width: 20%" class="content-data">
+				<div style="width: 55%" class="content-data">
 				
 						<div class="wrapper">
 							<a href="{{ route('admin.edit.barchart') }}" class="btn-upgrade">Edit</a>
@@ -700,7 +700,7 @@ main .btn-upgrade:hover {
 					
 
 				</div>
-                <div style="width: 20%" class="content-data">
+                <div style="max-width: 35% ;min-width:35%;" class="content-data">
 					<div class="wrapper">
 						<a href="{{ route('admin.edit.piechart') }}" class="btn-upgrade">Edit</a>
 					</div>
