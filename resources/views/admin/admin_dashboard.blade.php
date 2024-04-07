@@ -679,13 +679,21 @@ main .btn-upgrade:hover {
 			</ul>
 			<div class="info-data">
 				<div class="card">
+				<p>Scheduled task completion rate average: {{ $avg }}</p>
 				</div>
 				<div class="card">	
+
+				<p>SKILLPROFICIENCYLEVEL: {{ $avg1 }}</p>
+
 				</div>
 				<div class="card">
+				<p>SKILLPROFICIENCYLEVEL: {{ $sum }}</p>
+
 				</div>
 				<div class="card">
-				</div>
+				<p>SKILLPROFICIENCYLEVEL: {{ $sum1 }}</p>
+
+				</div> 	
 			</div>
 			<div class="data">
 				<div style="width: 20%" class="content-data">
