@@ -388,6 +388,50 @@ main .info-data .card {
 	background: var(--blue);
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
 }
+main .card .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+main .card .head h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+main .card .head p {
+	font-size: 14px;
+}
+main .card .head .icon {
+	font-size: 20px;
+	color: var(--green);
+}
+main .card .head .icon.down {
+	color: var(--red);
+}
+main .card .progress {
+	display: block;
+	margin-top: 24px;
+	height: 10px;
+	width: 100%;
+	border-radius: 10px;
+	background: var(--grey);
+	overflow-y: hidden;
+	position: relative;
+	margin-bottom: 4px;
+	
+}
+main .card .progress::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: var(--blue);
+	width: var(--value);
+}
+main .card .label {
+	font-size: 14px;
+	font-weight: 700;
+}
 
 
 
@@ -651,18 +695,50 @@ main .btn-send:hover {
 				<li><a href="#" class="active">Dashboard</a></li>
 			</ul>
 			<div class="info-data">
-				<div class="card">
-				<p>Scheduled task completion rate average: {{ $avg }}</p>
-				</div>			
-				<div class="card">	
-				<p>SKILLPROFICIENCYLEVEL: {{ $avg1 }}</p>
+			<div class="card">
+					<div class="head">
+						<div>
+							<h2>1500</h2>
+							<p>Scheduled task completion rate</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="20%"></span>
+					<span class="label">{{$avg}} </span>
 				</div>
 				<div class="card">
-				<p>SKILLPROFICIENCYLEVEL: {{ $sum }}</p>
+					<div class="head">
+						<div>
+							<h2>234</h2>
+							<p>Skill Proficiency Level</p>
+						</div>
+						<i class='bx bx-trending-down icon down' ></i>
+					</div>
+					<span class="progress" data-value="{{$avg1}}"></span>
+					<span class="label">{{$avg1}}</span>
 				</div>
 				<div class="card">
-				<p>SKILLPROFICIENCYLEVEL: {{ $sum1 }}</p>
+					<div class="head">
+						<div>
+							<h2>465</h2>
+							<p>Number of external projects</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="{{$sum}}"></span>
+					<span class="label">{{$sum}}</span>
 				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>235</h2>
+							<p>Number of internal projects</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="{{$sum1}}"></span>
+					<span class="label">{{$sum1}}</span>
+				</div>						
 			</div>
 			<div class="data">
 				<div style="width: 20%" class="content-data">
