@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Externe extends Model
 {
+    protected $primaryKey = 'année'; 
+
     use HasFactory;
 }

@@ -9,7 +9,8 @@ use App\Models\User;
 use App\Models\Premier;
 use App\Models\Second;
 use App\Models\Externe ;
-use App\Models\mobile ;
+use App\Models\Mobile ;
+
 
 
 class AdminController extends Controller
@@ -42,6 +43,36 @@ class AdminController extends Controller
        $second->notemax = $request->input('notemax');
 
        $second->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+    public function EditMobile (Mobile $mobile){
+        $mobiles = Mobile::all();
+        return view('admin.edit.edit_mobile', compact('mobiles','mobile'));
+    }
+    public function UpdateMobile(Request $request, $année0)
+    {
+       $mobile= Mobile::find($année0);
+
+       $mobile->nbre1= $request->input('nbre1');
+
+       $mobile->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+    public function EditExterne(Externe $externe){
+        $externes = Externe::all();
+        return view('admin.edit.edit_externe', compact('externes','externe'));
+    }
+    public function UpdateExterne(Request $request, $année)
+    {
+       $externe= Externe::find($année);
+
+       $externe->nbre= $request->input('nbre');
+
+       $externe->save();
     
        return redirect()->back()->with('success', 'Data updated successfully');
        
@@ -179,7 +210,7 @@ return view('admin.admin_dashboard', compact('sum1','sum','avg1','avg','barChart
     }
     public function AdminLogin(){
 
-        return view('admin.admin_login');
+        return view('admin.admin_login2');
     
     }
 }

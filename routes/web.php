@@ -3,9 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\Role;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Middleware\Role;
+
 
 
 
@@ -34,7 +35,10 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/edit/piechart', [AdminController::class, 'EditPieChart'])->name('admin.edit.piechart');
     Route::patch('/update/piechart/{id}', [AdminController::class, 'UpdatePieChart'])->name('admin.update.piechart');
-
+    Route::get('/edit/mobile', [AdminController::class, 'EditMobile'])->name('admin.edit.mobile');
+    Route::patch('/update/mobile/{année0}', [AdminController::class, 'UpdateMobile'])->name('admin.update.mobile');
+    Route::get('/edit/externe', [AdminController::class, 'EditExterne'])->name('admin.edit.externe');
+    Route::patch('/update/externe/{année}', [AdminController::class, 'UpdateExterne'])->name('admin.update.externe');
 
 
 });
