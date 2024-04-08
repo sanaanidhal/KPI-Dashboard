@@ -385,7 +385,7 @@ main .info-data {
 main .info-data .card {
 	padding: 20px;
 	border-radius: 10px;
-	background: var(--light);
+	background: var(--blue);
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
 }
 
@@ -652,12 +652,16 @@ main .btn-send:hover {
 			</ul>
 			<div class="info-data">
 				<div class="card">
-				</div>
+				<p>Scheduled task completion rate average: {{ $avg }}</p>
+				</div>			
 				<div class="card">	
+				<p>SKILLPROFICIENCYLEVEL: {{ $avg1 }}</p>
 				</div>
 				<div class="card">
+				<p>SKILLPROFICIENCYLEVEL: {{ $sum }}</p>
 				</div>
 				<div class="card">
+				<p>SKILLPROFICIENCYLEVEL: {{ $sum1 }}</p>
 				</div>
 			</div>
 			<div class="data">
