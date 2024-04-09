@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>AdminSite</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
@@ -377,6 +378,9 @@ main .breadcrumbs li.divider {
 	color: var(--dark-grey);
 	pointer-events: none;
 }
+
+
+
 main .info-data {
 	margin-top: 36px;
 	display: grid;
@@ -389,6 +393,51 @@ main .info-data .card {
 	background: var(--light);
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
 }
+main .card .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+main .card .head h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+main .card .head p {
+	font-size: 14px;
+}
+main .card .head .icon {
+	font-size: 20px;
+	color: var(--green);
+}
+main .card .head .icon.down {
+	color: var(--red);
+}
+main .card .progress {
+	display: block;
+	margin-top: 24px;
+	height: 10px;
+	width: 100%;
+	border-radius: 10px;
+	background: var(--grey);
+	overflow-y: hidden;
+	position: relative;
+	margin-bottom: 4px;
+	
+}
+main .card .progress::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: var(--blue);
+	width: var(--w);
+}
+main .card .label {
+	font-size: 14px;
+	font-weight: 700;
+}
+
 
 
 
@@ -678,14 +727,50 @@ main .btn-upgrade:hover {
 				<li><a href="#" class="active">Dashboard</a></li>
 			</ul>
 			<div class="info-data">
+			<div class="card">
+					<div class="head">
+						<div>
+							<h2>1500</h2>
+							<p>Scheduled task completion rate</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" style="--w:{{$avg}}"></span>
+					<span class="label">{{$avg}} </span>
+				</div>
 				<div class="card">
-				</div>
-				<div class="card">	
+					<div class="head">
+						<div>
+							<h2>234</h2>
+							<p>Skill Proficiency Level</p>
+						</div>
+						<i class='bx bx-trending-down icon down' ></i>
+					</div>
+					<span class="progress" style="--w:{{$avg1}}"></span>
+					<span class="label">{{$avg1}}</span>
 				</div>
 				<div class="card">
+					<div class="head">
+						<div>
+							<h2>{{$sum}}</h2>
+							<p>Number of external projects</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" style="--w:{{$avg2}}"></span>
+					<span class="label">{{$sum}}</span>
 				</div>
 				<div class="card">
-				</div>
+					<div class="head">
+						<div>
+							<h2>{{$sum1}}</h2>
+							<p>Number of internal projects</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" style="--w:{{$avg}}"></span>
+					<span class="label">{{$sum1}}</span>
+				</div>						
 			</div>
 			<div class="data">
 				<div style="width: 20%" class="content-data">
@@ -708,7 +793,7 @@ main .btn-upgrade:hover {
 				</div>
 				<div style="width: 20%" class="content-data">
 					<div class="wrapper">
-						<a href="#" class="btn-upgrade">Edit</a>
+						<a href="{{ route('admin.edit.externe') }}" class="btn-upgrade">Edit</a>
 					</div>
 					<canvas id="myChart0"></canvas>
 					<script>
@@ -769,7 +854,7 @@ main .btn-upgrade:hover {
 								
 								<div style="width: 20%" class="content-data">
 									<div class="wrapper">
-										<a href="#" class="btn-upgrade">Edit</a>
+										<a href="{{ route('admin.edit.mobile') }}" class="btn-upgrade">Edit</a>
 									</div>
 					<canvas id="myChart00"></canvas>
 					<script>
@@ -1044,7 +1129,8 @@ window.addEventListener('click', function (e) {
 
 
 // PROGRESSBAR
-const allProgress = document.querySelectorAll('main .card .progress');
+
+allProgress = document.querySelectorAll('main .card .progress');
 
 allProgress.forEach(item=> {
 	item.style.setProperty('--value', item.dataset.value)

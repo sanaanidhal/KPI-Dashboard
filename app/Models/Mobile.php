@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mobile extends Model
 {
+    protected $primaryKey = 'année0'; 
     use HasFactory;
 }

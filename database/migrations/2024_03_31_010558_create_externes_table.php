@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('externes', function (Blueprint $table) {
             $table->integer('année')->primary();
             $table->integer('nbre');
+            $table->timestamps();
         });
     }
 

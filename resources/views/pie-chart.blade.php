@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div style="width: 80%; margin: auto;">
+    <div style="width: 100%; margin: auto;">
         <canvas id="pieChart"></canvas>
     </div>
 

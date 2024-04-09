@@ -9,7 +9,8 @@ use App\Models\User;
 use App\Models\Premier;
 use App\Models\Second;
 use App\Models\Externe ;
-use App\Models\mobile ;
+use App\Models\Mobile ;
+
 
 
 class AdminController extends Controller
@@ -42,6 +43,36 @@ class AdminController extends Controller
        $second->notemax = $request->input('notemax');
 
        $second->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+    public function EditMobile (Mobile $mobile){
+        $mobiles = Mobile::all();
+        return view('admin.edit.edit_mobile', compact('mobiles','mobile'));
+    }
+    public function UpdateMobile(Request $request, $année0)
+    {
+       $mobile= Mobile::find($année0);
+
+       $mobile->nbre1= $request->input('nbre1');
+
+       $mobile->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+    public function EditExterne(Externe $externe){
+        $externes = Externe::all();
+        return view('admin.edit.edit_externe', compact('externes','externe'));
+    }
+    public function UpdateExterne(Request $request, $année)
+    {
+       $externe= Externe::find($année);
+
+       $externe->nbre= $request->input('nbre');
+
+       $externe->save();
     
        return redirect()->back()->with('success', 'Data updated successfully');
        
@@ -112,11 +143,60 @@ class AdminController extends Controller
     $nbresExterne = $donneesExterne->pluck('nbre')->toArray();
     $anneesMobile = $donneesMobile->pluck('année0')->toArray();
     $nbresMobile = $donneesMobile->pluck('nbre1')->toArray();
+    $sum =0;
+    foreach($donneesExterne as $donneesEx){
+        $sum+= $donneesEx->nbre ;
+    }
+    $sum1 =0;
+    foreach($donneesMobile as $donneesMo){
+        $sum1+= $donneesMo->nbre1 ;
+    }
 
+    // Fetch all records from the premiers table using the Premier model
+    $records = Premier::all();
+
+    // Check if any records exist
+    if ($records->isEmpty()) {
+        return "No records found";
+    }
+
+    // Calculate the scheduled task completion rate for each record and store the results in an array
+    $values = [];
+    foreach ($records as $record) {
+        $scheduledTaskCompletionRate = ($record->completed_on_time / $record->total_tasks) * 100;
+        $values[] = $scheduledTaskCompletionRate;
+    }
+
+    // Calculate the average of the calculated values
+    $average = array_sum($values) / count($values);
+
+    // Return the average completion rate as a formatted string
+    $avg = number_format($average, 2) . '%';
+
+ // Fetch all records from the premiers table using the Premier model
+ $records1 = Second::all();
+
+ // Check if any records exist
+ if ($records1->isEmpty()) {
+     return "No records found";
+ }
+
+ // Calculate the scheduled task completion rate for each record and store the results in an array
+ $values1 = [];
+ foreach ($records1 as $record1) {
+     $SKILLPROFICIENCYLEVEL = ($record1->note / $record1->notemax) * 100;
+     $values1[] = $SKILLPROFICIENCYLEVEL;
+ }
+
+ // Calculate the average of the calculated values
+ $average1 = array_sum($values1) / count($values1);
+
+ // Return the average completion rate as a formatted string
+ $avg1 = number_format($average1, 2) . '%';
 
     
 
-return view('admin.admin_dashboard', compact('barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('admin.admin_dashboard', compact('sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
     }
     
     public function AdminLogout(Request $request){
@@ -130,7 +210,7 @@ return view('admin.admin_dashboard', compact('barChartData', 'pieChartData','ann
     }
     public function AdminLogin(){
 
-        return view('admin.admin_login');
+        return view('admin.admin_login2');
     
     }
 }

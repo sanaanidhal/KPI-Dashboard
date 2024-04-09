@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mobiles', function (Blueprint $table) {
             $table->integer('année0')->primary();
             $table->integer('nbre1');
+            $table->timestamps();
         });
     }
 
