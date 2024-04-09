@@ -130,7 +130,7 @@ $donneesExterne = Externe::all();
 
     
 
-return view('admin.admin_dashboard', compact('sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('dashboard', compact('sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
 }   
     
 }

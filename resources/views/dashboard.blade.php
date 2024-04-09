@@ -386,9 +386,8 @@ main .info-data {
 main .info-data .card {
 	padding: 20px;
 	border-radius: 10px;
-	background: var(--blue);
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
-}
+	background: var(--light);
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
 main .card .head {
 	display: flex;
 	justify-content: space-between;
@@ -448,7 +447,7 @@ main .data .content-data {
 	padding: 20px;
 	background: var(--light);
 	border-radius: 10px;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 main .data .content-data-special{
 	flex-grow: 1;
@@ -456,7 +455,7 @@ main .data .content-data-special{
 	padding: 20px;
 	background: var(--light);
 	border-radius: 10px;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 	max-width: 35% ;
 	min-width:35%;
 }
