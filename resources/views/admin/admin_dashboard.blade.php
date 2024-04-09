@@ -6,7 +6,8 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>AdminSite</title>
+	<title>SupcomJE - Dashboard </title>
+	<script src="https://kit.fontawesome.com/f5f77ab04f.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
@@ -47,167 +48,6 @@ li {
 	list-style: none;
 }
 
-
-
-
-
-
-
-/* SIDEBAR */
-#sidebar {
-	position: fixed;
-	max-width: 260px;
-	width: 100%;
-	background: var(--light);
-	top: 0;
-	left: 0;
-	height: 100%;
-	overflow-y: auto;
-	scrollbar-width: none;
-	transition: all .3s ease;
-	z-index: 200;
-}
-#sidebar.hide {
-	max-width: 60px;
-}
-#sidebar.hide:hover {
-	max-width: 260px;
-}
-#sidebar::-webkit-scrollbar {
-	display: none;
-}
-#sidebar .brand {
-	font-size: 24px;
-	display: flex;
-	align-items: center;
-	height: 64px;
-	font-weight: 700;
-	color: var(--blue);
-	position: sticky;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	background: var(--light);
-	transition: all .3s ease;
-	padding: 0 6px;
-}
-#sidebar .icon {
-	min-width: 48px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 6px;
-}
-#sidebar .icon-right {
-	margin-left: auto;
-	transition: all .3s ease;
-}
-#sidebar .side-menu {
-	margin: 36px 0;
-	padding: 0 20px;
-	transition: all .3s ease;
-}
-#sidebar.hide .side-menu {
-	padding: 0 6px;
-}
-#sidebar.hide:hover .side-menu {
-	padding: 0 20px;
-}
-#sidebar .side-menu a {
-	display: flex;
-	align-items: center;
-	font-size: 14px;
-	color: var(--dark);
-	padding: 12px 16px 12px 0;
-	transition: all .3s ease;
-	border-radius: 10px;
-	margin: 4px 0;
-	white-space: nowrap;
-}
-#sidebar .side-menu > li > a:hover {
-	background: var(--grey);
-}
-#sidebar .side-menu > li > a.active .icon-right {
-	transform: rotateZ(90deg);
-}
-#sidebar .side-menu > li > a.active,
-#sidebar .side-menu > li > a.active:hover {
-	background: var(--blue);
-	color: var(--light);
-}
-#sidebar .divider {
-	margin-top: 24px;
-	font-size: 12px;
-	text-transform: uppercase;
-	font-weight: 700;
-	color: var(--dark-grey);
-	transition: all .3s ease;
-	white-space: nowrap;
-}
-#sidebar.hide:hover .divider {
-	text-align: left;
-}
-#sidebar.hide .divider {
-	text-align: center;
-}
-#sidebar .side-dropdown {
-	padding-left: 54px;
-	max-height: 0;
-	overflow-y: hidden;
-	transition: all .15s ease;
-}
-#sidebar .side-dropdown.show {
-	max-height: 1000px;
-}
-#sidebar .side-dropdown a:hover {
-	color: var(--blue);
-}
-#sidebar .ads {
-	width: 100%;
-	padding: 20px;
-}
-#sidebar.hide .ads {
-	display: none;
-}
-#sidebar.hide:hover .ads {
-	display: block;
-}
-
-#sidebar .ads .wrapper {
-	background: var(--grey);
-	padding: 20px;
-	border-radius: 10px;
-}
-#sidebar .btn-upgrade {
-	font-size: 14px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 12px 0;
-	color: var(--light);
-	background: var(--blue);
-	transition: all .3s ease;
-	border-radius: 5px;
-	font-weight: 600;
-	margin-bottom: 12px;
-}
-#sidebar .btn-upgrade:hover {
-	background: var(--dark-blue);
-}
-#sidebar .ads .wrapper p {
-	font-size: 12px;
-	color: var(--dark-grey);
-	text-align: center;
-}
-#sidebar .ads .wrapper p span {
-	font-weight: 700;
-}
-/* SIDEBAR */
-
-
-
-
-
 /* CONTENT */
 #content {
 	position: relative;
@@ -220,138 +60,6 @@ li {
 	left: 60px;
 }
 
-
-/* NAVBAR */
-nav {
-            background: var(--light);
-            height: 64px;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            grid-gap: 28px;
-            position: sticky;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-
-        nav .toggle-sidebar {
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        nav form {
-            max-width: 400px;
-            width: 100%;
-            margin-right: auto;
-        }
-
-        nav .form-group {
-            position: relative;
-        }
-
-        nav .form-group input {
-            width: 100%;
-            background: var(--grey);
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            padding: 10px 36px 10px 16px;
-            transition: all .3s ease;
-        }
-
-        nav .form-group input:focus {
-            box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
-        }
-
-        nav .form-group .icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 16px;
-            color: var(--dark-grey);
-        }
-
-        nav .nav-link {
-            position: relative;
-        }
-
-        nav .nav-link .icon {
-            font-size: 18px;
-            color: var(--dark);
-        }
-
-        nav .nav-link .badge {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid var(--light);
-            background: var(--red);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--light);
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        nav .divider {
-            width: 1px;
-            background: var(--grey);
-            height: 12px;
-            display: block;
-        }
-
-        nav .profile {
-            position: relative;
-        }
-
-        nav .profile img {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        nav .profile .profile-link {
-            position: absolute;
-            top: calc(100% + 10px);
-            right: 0;
-            background: var(--light);
-            padding: 10px 0;
-            box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
-            border-radius: 10px;
-            width: 160px;
-            opacity: 0;
-            pointer-events: none;
-            transition: all .3s ease;
-        }
-
-        nav .profile .profile-link.show {
-            opacity: 1;
-            pointer-events: visible;
-            top: 100%;
-        }
-
-        nav .profile .profile-link a {
-            padding: 10px 16px;
-            display: flex;
-            grid-gap: 10px;
-            font-size: 14px;
-            color: var(--dark);
-            align-items: center;
-            transition: all .3s ease;
-        }
-
-        nav .profile .profile-link a:hover {
-            background: var(--grey);
-        }
-
-        /* NAVBAR */
 /* MAIN */
 main {
 	width: 100%;
@@ -453,6 +161,35 @@ main .data .content-data {
 	background: var(--light);
 	border-radius: 10px;
 	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+main .data .content-data table {
+  background: var(--light);
+  border-radius: 10px;
+  border-collapse: collapse;
+  margin: 1em;
+  width: 70vw;
+}
+main .data .content-data th {
+  border-bottom: 1px solid #364043;
+  color:var(--dark-blue);
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+main .data .content-data td {
+  color: #4F5F64;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+main .data .content-data tbody tr {
+  transition: background 0.25s ease;
+}
+main .data .content-data tbody tr:hover {
+  background: var(--grey);
+}
+main .data .content-data td:hover {
+  color: black;
 }
 main .data .content-data-special{
 	flex-grow: 1;
@@ -679,65 +416,14 @@ main .btn-upgrade:hover {
 	
 	
 	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
-		<ul class="side-menu">
-			@if(Auth::user()->role ==='admin' )
-			<li><a href="{{route('admin.dashboard')}}" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
-			@elseif(Auth::user()->role ==='user' )
-			<li><a href="{{route('dashboard')}}" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
-			@endif
-			<li class="divider" data-text="main">Main</li>
-			<li>
-				<a href="#"><i class='bx bxs-inbox icon' ></i> Elements <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="#">Alert</a></li>
-					<li><a href="#">Badges</a></li>
-					<li><a href="#">Breadcrumbs</a></li>
-					<li><a href="#">Button</a></li>
-				</ul>
-			</li>
-			<li><a href="#"><i class='bx bxs-chart icon' ></i> Charts</a></li>
-			<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
-			<li class="divider" data-text="table and forms">Table and forms</li>
-			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
-			<li>
-				<a href="#"><i class='bx bxs-notepad icon' ></i> Forms <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="#">Basic</a></li>
-					<li><a href="#">Select</a></li>
-					<li><a href="#">Checkbox</a></li>
-					<li><a href="#">Radio</a></li>
-				</ul>
-			</li>
-		</ul>
-		<div class="ads">
-			<div class="wrapper">
-				<a href="#" class="btn-upgrade">Upgrade</a>
-				<p>Become a <span>PRO</span> member and enjoy <span>All Features</span></p>
-			</div>
-		</div>
-	</section>
+	@include('sidebar')
 	<!-- SIDEBAR -->
 
-	<!-- NAVBAR -->
+	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav>
-            <i class='bx bx-menu toggle-sidebar'></i>
-            <form action="#">
-                <div class="form-group">
-                    <input type="text" placeholder="Search...">
-                    <i class='bx bx-search icon'></i>
-                </div>
-            </form>
-			<x-app-layout>
-			</x-app-layout>
-        </nav>
-		
-		
+		@include('navbar')
 		<!-- NAVBAR -->
-		
 		
 		<!-- MAIN -->
 		<main>
@@ -932,67 +618,38 @@ main .btn-upgrade:hover {
 						});
 					</script>
 				</div>
-				<!--<div class="content-data">
-					<div class="head">
-						<h3>Chatbox</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="chat-box">
-						<p class="day"><span>Today</span></p>
-						<div class="msg">
-							<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-							<div class="chat">
-								<div class="profile">
-									<span class="username">Alan</span>
-									<span class="time">18:30</span>
-								</div>
-								<p>Hello</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatum eos quam dolores eligendi exercitationem animi nobis reprehenderit laborum! Nulla.</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, architecto!</p>
-							</div>
-						</div>
-						<div class="msg me">
-							<div class="chat">
-								<div class="profile">
-									<span class="time">18:30</span>
-								</div>
-								<p>Lorem ipsum, dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-					<form action="#">
-						<div class="form-group">
-							<input type="text" placeholder="Type...">
-							<button type="submit" class="btn-send"><i class='bx bxs-send' ></i></button>
-						</div>
-					</form>
-				</div>-->
+				<div style="width: 55%" class="content-data">
+					<h1 style='padding:0 0 2% 2%;' class='title' >Latest Projects</h1>
+					<table>
+						<thead>
+						  <tr>
+							<th>ID
+							<th>Name
+							<th>Date
+							<th>Pole
+							<th>Project Link
+							<th>Type ( Externe/Mobile )
+						</thead>
+						<tbody>
+							@forEach($projects as $project)
+
+						  <tr>
+							<td>{{ $project->id }}
+							<td>{{ $project->name }}
+							<td>{{ $project->date }}
+							<td>{{ $project->pole }}
+							<td>{{ $project->lien }}
+							<td>{{ $project->type }}
+								@endforeach
+						</tbody>
+					  </table>
+				
+			   </div>
 			</div>
 		</main>
 		<!-- MAIN -->
 	</section>
-	<!-- NAVBAR -->
+	<!-- CONTENT -->
 
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<script>
