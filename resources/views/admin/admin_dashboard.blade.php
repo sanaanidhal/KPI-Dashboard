@@ -406,6 +406,16 @@ main .data .content-data {
 	border-radius: 10px;
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 }
+main .data .content-data-special{
+	flex-grow: 1;
+	flex-basis: 400px;
+	padding: 20px;
+	background: var(--light);
+	border-radius: 10px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	max-width: 35% ;
+	min-width:35%;
+}
 main .content-data .head {
 	display: flex;
 	justify-content: space-between;
@@ -602,6 +612,18 @@ main .btn-upgrade:hover {
 	nav .divider {
 		display: none;
 	}
+	
+}
+@media screen and (max-width: 950px) {
+	main .data .content-data-special{
+	flex-grow: 1;
+	flex-basis: 400px;
+	padding: 20px;
+	background: var(--light);
+	border-radius: 10px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	min-width: 100%;
+}
 }
     </style>
 </head>
@@ -700,7 +722,7 @@ main .btn-upgrade:hover {
 					
 
 				</div>
-                <div style="max-width: 35% ;min-width:35%;" class="content-data">
+                <div class="content-data-special">
 					<div class="wrapper">
 						<a href="{{ route('admin.edit.piechart') }}" class="btn-upgrade">Edit</a>
 					</div>

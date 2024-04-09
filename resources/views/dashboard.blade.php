@@ -406,6 +406,16 @@ main .data .content-data {
 	border-radius: 10px;
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 }
+main .data .content-data-special{
+	flex-grow: 1;
+	flex-basis: 400px;
+	padding: 20px;
+	background: var(--light);
+	border-radius: 10px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	max-width: 35% ;
+	min-width:35%;
+}
 main .content-data .head {
 	display: flex;
 	justify-content: space-between;
@@ -562,6 +572,7 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
+
 /* MAIN */
 /* CONTENT */
 
@@ -580,6 +591,17 @@ main .btn-send:hover {
 	nav .divider {
 		display: none;
 	}
+}
+@media screen and (max-width: 950px) {
+	main .data .content-data-special{
+	flex-grow: 1;
+	flex-basis: 400px;
+	padding: 20px;
+	background: var(--light);
+	border-radius: 10px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	min-width: 100%;
+}
 }
     </style>
 </head>
@@ -667,7 +689,7 @@ main .btn-send:hover {
 
 
 				</div>
-                <div style="max-width: 35% ;min-width:35%;" class="content-data">
+                <div class="content-data-special">
 					@include('pie-chart', ['data' => $pieChartData])
 
 				</div>
