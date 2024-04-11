@@ -619,6 +619,9 @@ main .btn-upgrade:hover {
 					</script>
 				</div>
 				<div style="width: 55%" class="content-data">
+					<div class="wrapper">
+						<a href="{{ route('admin.edit.projects') }}" class="btn-upgrade">Edit</a>
+					</div>
 					<h1 style='padding:0 0 2% 2%;' class='title' >Latest Projects</h1>
 					<table>
 						<thead>

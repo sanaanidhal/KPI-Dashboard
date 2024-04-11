@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function(){
     Route::patch('/update/mobile/{année0}', [AdminController::class, 'UpdateMobile'])->name('admin.update.mobile');
     Route::get('/edit/externe', [AdminController::class, 'EditExterne'])->name('admin.edit.externe');
     Route::patch('/update/externe/{année}', [AdminController::class, 'UpdateExterne'])->name('admin.update.externe');
+    
+    Route::get('/edit/projects', [AdminController::class, 'EditProjects'])->name('admin.edit.projects');
+    Route::patch('/update/projects/{id}', [AdminController::class, 'UpdateProjects'])->name('admin.update.projects');
 
 
 });

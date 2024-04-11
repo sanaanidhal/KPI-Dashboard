@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
+use App\Models\Project;
 use App\Models\Premier;
 use App\Models\Second;
 use App\Models\Externe ;
@@ -29,7 +30,8 @@ $barChartData = [
     'labels' => $labels,
     'data' => $data1,
 ];
-
+ // Fetch data for projects table
+ $projects = Project::all();
 // Fetch data for pie chart
 $seconds = Second::all();
 $html = 0;
@@ -130,7 +132,7 @@ $donneesExterne = Externe::all();
 
     
 
-return view('dashboard', compact('sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('dashboard', compact('projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
 }   
     
 }

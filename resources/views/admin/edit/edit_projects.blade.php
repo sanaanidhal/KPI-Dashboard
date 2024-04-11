@@ -266,38 +266,32 @@
             </ul>
             <!-- table -->
 
-            <h2 class="title">Edit Data : Skill proficiency level
+            <h2 class="title">Edit Data : Latest Projects
             </h2>
             <div class="table-wrapper">
                 <table class="fl-table">
-                    @php $lastUserId = null; @endphp
-                    @foreach($seconds as $second)
-                        @if($lastUserId === null || $lastUserId !== $second->user_id)
-                            @if($lastUserId !== null)
-                                </tbody>
-                            @endif
                             <thead>
                                 <tr>
-                                    <th>Competence</th>
-                                    <th>User ID</th>
-                                    <th>Mark</th>
-                                    <th>MAX Mark</th>
-                                    <th>Updated At</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Pole</th>
+                                    <th>Type</th>
                                     <th>Update</th>
                                 </tr>
                             </thead>
                             <tbody>
-                        @endif
-                        @php $lastUserId = $second->user_id; @endphp
+                                @foreach($projects as $project)
+
                         <tr>
-                            <form method="POST" action="{{ route('admin.update.piechart', ['id' => $second->id]) }}">
+                            <form method="POST" action="{{ route('admin.update.projects', ['id' => $project->id]) }}">
                                 @csrf
                                 @method('PATCH')
-                                <td>{{ $second->competence }}</td>
-                                <td>{{ $second->user_id }}</td>
-                                <td><input type="number" name="note" value="{{ $second->note }}"></td>
-                                <td><input type="number" name="notemax" value="{{ $second->notemax }}"></td>
-                                <td>{{ $second->updated_at }}</td>
+                                <td>{{ $project->id }}</td>
+                                <td><input type="text" name="name" value="{{ $project->name }}"></td>
+                                <td><input type="text" name="date" value="{{ $project->date }}"></td>
+                                <td><input type="text" name="pole" value="{{ $project->pole }}"></td>
+                                <td><input style="width:100px" type="text" name="type" value="{{ $project->type }}"></td>
                                 <td>
                                     <button type="submit"><i class="fa-regular fa-pen-to-square"></i> Update</button>
                                 </td>
@@ -332,7 +326,7 @@
                         allDropdown.forEach(i => {
                             const aLink = i.parentElement.querySelector(
                                 'a:first-child');
-
+                            
                             aLink.classList.remove('active');
                             i.classList.remove('show');
                         })

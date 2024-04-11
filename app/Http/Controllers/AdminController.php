@@ -17,6 +17,23 @@ use App\Models\Mobile ;
 class AdminController extends Controller
 {
 
+    public function EditProjects(Project $project){
+        $projects = Project::all();
+        return view('admin.edit.edit_projects', compact('projects','project'));
+    }
+    public function UpdateProjects(Request $request, $id)
+    {
+       $project = Project::find($id);
+       $project->name = $request->input('name');
+       $project->date = $request->input('date');
+       $project->pole = $request->input('pole');
+       $project->type = $request->input('type');
+       $project->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
+    
     public function EditBarChart(Premier $premier){
         $premiers = Premier::all();
         return view('admin.edit.edit_barchart', compact('premiers','premier'));
