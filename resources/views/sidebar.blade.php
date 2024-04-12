@@ -1,11 +1,5 @@
 <style>
     
-
-
-
-
-
-
 /* SIDEBAR */
 #sidebar {
 	position: fixed;
@@ -115,43 +109,12 @@
 #sidebar .side-dropdown a:hover {
 	color: var(--blue);
 }
-#sidebar .ads {
-	width: 100%;
-	padding: 20px;
-}
-#sidebar.hide .ads {
-	display: none;
-}
-#sidebar.hide:hover .ads {
-	display: block;
-}
 
-#sidebar .ads .wrapper {
-	background: var(--grey);
-	padding: 20px;
-	border-radius: 10px;
-}
-#sidebar .btn-upgrade {
-	font-size: 14px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 12px 0;
-	color: var(--light);
-	background: var(--blue);
-	transition: all .3s ease;
-	border-radius: 5px;
-	font-weight: 600;
-	margin-bottom: 12px;
-}
-#sidebar .btn-upgrade:hover {
-	background: var(--dark-blue);
-}
 
 /* SIDEBAR */
 </style>
 <section id="sidebar">
-		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
+		<a href="#"style='font-size:20px;' class="brand"><i class='bx bxs-analyse bx-md ps-2 pe-3'></i> JuniorAnalytics</a>
 		<ul class="side-menu">
 			@if(Auth::user()->role ==='admin' )
 			<li><a href="{{route('admin.dashboard')}}" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>

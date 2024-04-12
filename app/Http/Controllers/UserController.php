@@ -134,5 +134,16 @@ $donneesExterne = Externe::all();
 
 return view('dashboard', compact('projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
 }   
+
+public function Redirect(){
+    if(Auth::user()->role ==='admin' ){
+
+    return redirect('admin/dashboard');
+    }
+    else{
+        return redirect('dashboard');
+
+    }
+}
     
 }
