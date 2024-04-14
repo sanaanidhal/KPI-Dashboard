@@ -464,7 +464,7 @@ main .btn-upgrade:hover {
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" style="--w:{{$avg2}}"></span>
+					<span class="progress" style="--w:{{$avg}}"></span>
 					<span class="label">{{$sum}}</span>
 				</div>
 				<div class="card">
@@ -480,7 +480,7 @@ main .btn-upgrade:hover {
 				</div>						
 			</div>
 			<div class="data">
-				<div style="width: 20%" class="content-data">
+				<div style="width: 55%" class="content-data">
 				
 						<div class="wrapper">
 							<a href="{{ route('admin.edit.barchart') }}" class="btn-upgrade">Edit</a>
@@ -491,7 +491,7 @@ main .btn-upgrade:hover {
 					
 
 				</div>
-                <div style="width: 20%" class="content-data">
+                <div  class="content-data-special">
 					<div class="wrapper">
 						<a href="{{ route('admin.edit.piechart') }}" class="btn-upgrade">Edit</a>
 					</div>
