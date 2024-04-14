@@ -100,6 +100,7 @@ main .info-data .card {
 	border-radius: 10px;
 	background: var(--light);
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
+}
 main .card .head {
 	display: flex;
 	justify-content: space-between;
@@ -138,7 +139,7 @@ main .card .progress::before {
 	left: 0;
 	height: 100%;
 	background: var(--blue);
-	width: var(--value);
+	width: var(--w);
 }
 main .card .label {
 	font-size: 14px;
@@ -397,7 +398,6 @@ main .btn-upgrade:hover {
 	nav .divider {
 		display: none;
 	}
-	
 }
 @media screen and (max-width: 950px) {
 	main .data .content-data-special{
@@ -442,7 +442,7 @@ main .btn-upgrade:hover {
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="20%"></span>
+					<span class="progress" style="--w:{{$avg}}"></span>
 					<span class="label">{{$avg}} </span>
 				</div>
 				<div class="card">
@@ -453,34 +453,34 @@ main .btn-upgrade:hover {
 						</div>
 						<i class='bx bx-trending-down icon down' ></i>
 					</div>
-					<span class="progress" data-value="{{$avg1}}"></span>
+					<span class="progress" style="--w:{{$avg1}}"></span>
 					<span class="label">{{$avg1}}</span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>465</h2>
+							<h2>{{$sum}}</h2>
 							<p>Number of external projects</p>
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="{{$sum}}"></span>
+					<span class="progress" style="--w:{{$avg2}}"></span>
 					<span class="label">{{$sum}}</span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>235</h2>
+							<h2>{{$sum1}}</h2>
 							<p>Number of internal projects</p>
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="{{$sum1}}"></span>
+					<span class="progress" style="--w:{{$avg}}"></span>
 					<span class="label">{{$sum1}}</span>
 				</div>						
 			</div>
 			<div class="data">
-				<div style="width: 55%" class="content-data">
+				<div style="width: 20%" class="content-data">
 				
 						<div class="wrapper">
 							<a href="{{ route('admin.edit.barchart') }}" class="btn-upgrade">Edit</a>
@@ -491,7 +491,7 @@ main .btn-upgrade:hover {
 					
 
 				</div>
-                <div class="content-data-special">
+                <div style="width: 20%" class="content-data">
 					<div class="wrapper">
 						<a href="{{ route('admin.edit.piechart') }}" class="btn-upgrade">Edit</a>
 					</div>
