@@ -11,12 +11,32 @@ use App\Models\Project;
 use App\Models\Second;
 use App\Models\Externe ;
 use App\Models\Mobile ;
+use App\Models\Task ;
+
 
 
 
 class AdminController extends Controller
 {
 
+    public function EditTasks(Task $task){
+        $tasks = Task::all();
+        return view('admin.edit.edit_tasks', compact('tasks','task'));
+    }
+    public function UpdateTasks(Request $request, $id)
+    {
+       $task = Task::find($id);
+       $task->title = $request->input('title');
+       $task->description = $request->input('description');
+       $task->priority = $request->input('priority');
+       $task->date = $request->input('date');
+       $task->duration = $request->input('duration');
+
+       $task->save();
+    
+       return redirect()->back()->with('success', 'Data updated successfully');
+       
+    }
     public function EditProjects(Project $project){
         $projects = Project::all();
         return view('admin.edit.edit_projects', compact('projects','project'));
@@ -213,10 +233,10 @@ class AdminController extends Controller
 
  // Return the average completion rate as a formatted string
  $avg1 = number_format($average1, 2) . '%';
+ //TASK 
+ $tasks = Task::all();
 
-    
-
-return view('admin.admin_dashboard', compact('projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('admin.admin_dashboard', compact('tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
     }
     
     public function AdminLogout(Request $request){

@@ -11,6 +11,8 @@ use App\Models\Premier;
 use App\Models\Second;
 use App\Models\Externe ;
 use App\Models\mobile ;
+use App\Models\Task ;
+
 
 class UserController extends Controller
 {
@@ -129,10 +131,11 @@ $donneesExterne = Externe::all();
 
  // Return the average completion rate as a formatted string
  $avg1 = number_format($average1, 2) . '%';
-
+//TASK 
+$tasks = Task::all();
     
 
-return view('dashboard', compact('projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('dashboard', compact('tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
 }   
 
 public function Redirect(){

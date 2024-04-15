@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/edit/projects', [AdminController::class, 'EditProjects'])->name('admin.edit.projects');
     Route::patch('/update/projects/{id}', [AdminController::class, 'UpdateProjects'])->name('admin.update.projects');
+
+    Route::get('/edit/tasks', [AdminController::class, 'EditTasks'])->name('admin.edit.tasks');
+    Route::patch('/update/tasks/{id}', [AdminController::class, 'UpdateTasks'])->name('admin.update.tasks');
 });
 
 Route::middleware('guest')->group(function () {

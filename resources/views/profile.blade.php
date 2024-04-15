@@ -26,9 +26,9 @@
                         <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made
                             with your work and manage your projects or assigned tasks</p>
                         @if(Auth::user()->role ==='admin' )
-                        <a href="{{ route('admin.dashboard')}}" class="btn btn-info">Home</a>
+                        <a Style='background-color:#1775F1;border-color: #1775F1;' href="{{ route('admin.dashboard')}}" class="btn btn-info">Home</a>
                         @elseif(Auth::user()->role ==='user' )
-                        <a href="{{ route('dashboard')}}" class="btn btn-info">Home</a>
+                        <a Style='background-color:#1775F1;border-color: #1775F1;' href="{{ route('dashboard')}}" class="btn btn-info">Home</a>
                         @endif
 
 
@@ -119,7 +119,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-info">Save</button>
+                                    <button Style='background-color:#1775F1;border-color: #1775F1;' type="submit" class="btn btn-info">Save</button>
                                 </form>
                             </div>
                             <hr class="my-4">
@@ -158,7 +158,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" id="button1" class="btn btn-info">Save</button>
+                                <button Style='background-color:#1775F1;border-color: #1775F1;' type="submit" id="button1" class="btn btn-info">Save</button>
 
                             </form>
                         </div>
