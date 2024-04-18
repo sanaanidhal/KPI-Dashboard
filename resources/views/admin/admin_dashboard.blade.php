@@ -99,7 +99,7 @@ main .info-data .card {
 	padding: 20px;
 	border-radius: 10px;
 	background: var(--light);
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 main .card .head {
 	display: flex;
@@ -820,21 +820,23 @@ main .btn-upgrade:hover {
 			<div class="card">
 					<div class="head">
 						<div>
-							<h2>1500</h2>
+							<h2>{{$sumcon}}</h2>
 							<p>Scheduled task completion rate</p>
 						</div>
+						@if($avg > 50)
 						<i class='bx bx-trending-up icon' ></i>
-					</div>
+						@else
+						<i class='bx bx-trending-down icon down' ></i>
+						@endif					</div>
 					<span class="progress" style="--w:{{$avg}}"></span>
 					<span class="label">{{$avg}} </span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>234</h2>
+							<h2>{{$avg1}}</h2>
 							<p>Skill Proficiency Level</p>
 						</div>
-						<i class='bx bx-trending-down icon down' ></i>
 					</div>
 					<span class="progress" style="--w:{{$avg1}}"></span>
 					<span class="label">{{$avg1}}</span>
@@ -842,24 +844,32 @@ main .btn-upgrade:hover {
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>{{$sum}}</h2>
+							<h2>{{$lastyear}}</h2>
 							<p>Number of external projects</p>
 						</div>
+						@if($avgE > 0)
 						<i class='bx bx-trending-up icon' ></i>
+						@else
+						<i class='bx bx-trending-down icon down' ></i>
+						@endif
 					</div>
-					<span class="progress" style="--w:{{$avg}}"></span>
-					<span class="label">{{$sum}}</span>
+					<span class="progress" style="--w:{{$avgE}}"></span>
+					<span class="label">{{$avgE}}</span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>{{$sum1}}</h2>
-							<p>Number of internal projects</p>
+							<h2>{{$lastyearMo}}</h2>
+							<p>Number of mobile projects</p>
 						</div>
+						@if($avgM > 0)
 						<i class='bx bx-trending-up icon' ></i>
+						@else
+						<i class='bx bx-trending-down icon down' ></i>
+						@endif
 					</div>
-					<span class="progress" style="--w:{{$avg}}"></span>
-					<span class="label">{{$sum1}}</span>
+					<span class="progress" style="--w:{{$avgM}}"></span>
+					<span class="label">{{$avgM}}</span>
 				</div>						
 			</div>
 			<div class="data">

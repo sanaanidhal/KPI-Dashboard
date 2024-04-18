@@ -184,13 +184,38 @@ class AdminController extends Controller
     $anneesMobile = $donneesMobile->pluck('année0')->toArray();
     $nbresMobile = $donneesMobile->pluck('nbre1')->toArray();
     $sum =0;
+    $lastyear=0;
+    $i=-1;
+    $avgEx=0;
+    $rate=0;
     foreach($donneesExterne as $donneesEx){
         $sum+= $donneesEx->nbre ;
+        $i+=1;
+        $lastyear=$donneesEx->nbre ;
     }
+    $avgEx=(($sum - $lastyear) / ($i));
+    $rate= (($lastyear-$avgEx) / $avgEx) *100;
+    // Return the average completion rate as a formatted string
+    $avgE = number_format($rate, 2) . '%';
+
+
+
+
+
     $sum1 =0;
+    $lastyearMo=0;
+    $j=-1;
+    $avgMo=0;
+    $rateMo=0;
     foreach($donneesMobile as $donneesMo){
-        $sum1+= $donneesMo->nbre1 ;
+        $sum1+= $donneesMo->nbre1;
+        $j+=1;
+        $lastyearMo=$donneesMo->nbre1 ;
     }
+    $avgMo=(($sum1- $lastyearMo) / ($j));
+    $rateMo= (($lastyearMo-$avgMo) / $avgMo) *100;
+    // Return the average completion rate as a formatted string
+    $avgM = number_format($rateMo, 2) . '%';
 
     // Fetch all records from the premiers table using the Premier model
     $records = Premier::all();
@@ -201,9 +226,11 @@ class AdminController extends Controller
     }
 
     // Calculate the scheduled task completion rate for each record and store the results in an array
+    $sumcon =0;
     $values = [];
     foreach ($records as $record) {
         $scheduledTaskCompletionRate = ($record->completed_on_time / $record->total_tasks) * 100;
+        $sumcon+=$record->completed_on_time;
         $values[] = $scheduledTaskCompletionRate;
     }
 
@@ -236,7 +263,7 @@ class AdminController extends Controller
  //TASK 
  $tasks = Task::all();
 
-return view('admin.admin_dashboard', compact('tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('admin.admin_dashboard', compact('avgM','lastyearMo','avgE','lastyear','sumcon','tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
     }
     
     public function AdminLogout(Request $request){
