@@ -112,7 +112,7 @@ main .card .head p {
 	font-size: 14px;
 }
 main .card .head .icon {
-	font-size: 20px;
+	font-size: 27px;
 	color: var(--green);
 }
 main .card .head .icon.down {
@@ -355,6 +355,24 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
+main .wrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+main h3{
+	font-size: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px ;
+	color: var(--dark);
+	font-weight: 600;	
+}
+main hr{
+	margin-bottom:20px;
+	margin-top: 5px;
+}
 
 
 .page-todo .tasks {
@@ -364,7 +382,6 @@ main .btn-send:hover {
 }
 
 .page-todo .task-list {
-    padding: 30px 15px;
     height: 100%
 }
 
@@ -790,7 +807,11 @@ main .btn-send:hover {
 		<main>
 			<h1 class="title">Dashboard</h1>
 			<ul class="breadcrumbs">
-				<li><a href="#">Home</a></li>
+				@if(Auth::user()->role ==='admin' )
+				<li><a href="{{route('admin.dashboard')}}">Home</a></li>
+				@elseif(Auth::user()->role ==='user' )
+				<li><a href="{{route('dashboard')}}">Home</a></li>
+				@endif
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Dashboard</a></li>
 			</ul>
@@ -798,7 +819,7 @@ main .btn-send:hover {
 			<div class="card">
 					<div class="head">
 						<div>
-							<h2>{{$sumcon}}</h2>
+							<h2>{{$sumcon}} / {{$sumtotal}} </h2>
 							<p>Scheduled task completion rate</p>
 						</div>
 						@if($avg > 50)
@@ -813,9 +834,14 @@ main .btn-send:hover {
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>{{$avg1}}</h2>
-							<p>Skill Proficiency Level</p>
+							<h2>{{$sumskill}} / {{$sumskilltotal}}</h2>
+							<p>Overall Skill Proficiency Level</p>
 						</div>
+						@if($avg1 > 50)
+						<i class='bx bx-trending-up icon' ></i>
+						@else
+						<i class='bx bx-trending-down icon down' ></i>
+						@endif
 					</div>
 					<span class="progress" style="--w:{{$avg1}}"></span>
 					<span class="label">{{$avg1}}</span>
@@ -851,19 +877,40 @@ main .btn-send:hover {
 			</div>
 			<div class="data">
 				<div style="width: 55%;" class="content-data">
+					<div class="wrapper">
+						<div style="display:flex;align-items:center;">
+							<i class='bx bxs-bar-chart-alt-2' style='color:rgba(75, 192, 192, 1);font-size:30px;'  ></i>
+							<h3 style="color:rgba(75, 192, 192, 1)">Scheduled task completion rate</h3>
+						</div>
+					</div>
+					<hr>
 					@include('bar-chart', ['data' => $barChartData])
 
 
 				</div>
                 <div class="content-data-special">
+					<div class="wrapper">
+						<div style="display:flex;align-items:center;">
+							<i class='bx bxs-pie-chart-alt-2' style='color:rgba(248, 203, 0);font-size:30px;'  ></i>
+							<h3 style='color:rgba(248, 203, 0);'>Skill Proficiency Level</h3>
+						</div>
+					</div>
+					<hr>
 					@include('pie-chart', ['data' => $pieChartData])
 
 				</div>
 				<div style="width: 20%" class="content-data">
+					<div class="wrapper">
+						<div style="display:flex;align-items:center;">
+							<i class='bx bxs-bar-chart-alt-2' style='color:rgba(106, 18, 137);font-size:30px;'  ></i>
+							<h3 style='color:rgba(106, 18, 137);'>Number of external projects</h3>
+						</div>
+					</div>
+					<hr>
 					<canvas id="myChart0"></canvas>
 					<script>
 						Chart.defaults.global.title.display = true;
-						Chart.defaults.global.title.text = "Nombre de projets externes";
+						Chart.defaults.global.title.text = "Number of external projects";
 						Chart.defaults.global.elements.point.radius = 10;
 					</script>
 				
@@ -875,7 +922,7 @@ main .btn-send:hover {
 							data: {
 								labels: {!! json_encode($anneesExterne) !!},
 								datasets: [{
-									label: 'Nombre de projets externes',
+									label: 'Number of external projects',
 									backgroundColor: 'rgba(106, 18, 137, 0.25)',
 									borderColor: 'rgba(106, 18, 137)',
 									data: {!! json_encode($nbresExterne) !!},
@@ -887,10 +934,6 @@ main .btn-send:hover {
 									text: 'Les projets externes'
 								},
 								plugins: {
-									title: {
-										display: true,
-										text: 'Nombre de projets externes'
-									},
 									legend: {
 										display: true,
 										position: 'top'
@@ -918,10 +961,17 @@ main .btn-send:hover {
 				
 								
 								<div style="width: 20%" class="content-data">
+									<div class="wrapper">
+										<div style="display:flex;align-items:center;">
+											<i class='bx bxs-bar-chart-alt-2' style='color:rgba(18, 31, 137);font-size:30px;'  ></i>
+											<h3 style="color:rgba(18, 31, 137);">Number of mobile projects</h3>
+										</div>
+									</div>
+									<hr>
 					<canvas id="myChart00"></canvas>
 					<script>
 						Chart.defaults.global.title.display = true;
-						Chart.defaults.global.title.text = "Nombre de projets externes";
+						Chart.defaults.global.title.text = "Number of external projects";
 						Chart.defaults.global.elements.point.radius = 10;
 					</script>
 				
@@ -933,7 +983,7 @@ main .btn-send:hover {
 							data: {
 								labels: {!! json_encode($anneesMobile) !!},
 								datasets: [{
-									label: 'Nombre de projets mobile',
+									label: 'Number of mobile projects',
 									backgroundColor: 'rgba(18, 31, 137, 0.25)',
 									borderColor: 'rgba(18, 31, 137)',
 									data: {!! json_encode($nbresMobile) !!},
@@ -945,10 +995,6 @@ main .btn-send:hover {
 									text: 'Les projets mobiles'
 								},
 								plugins: {
-									title: {
-										display: true,
-										text: 'Les projets mobiles'
-									},
 									legend: {
 										display: true,
 										position: 'top'
@@ -1005,7 +1051,7 @@ main .btn-send:hover {
 <div class="container page-todo bootstrap snippets bootdeys">
     <div class="col-sm-7 tasks">
         <div class="task-list">
-            <h1 class='title'>Tasks</h1>
+            <h1 style='padding:0 0 2% 2%;' class='title'>Tasks</h1>
             
             @foreach($tasks as $task)
             <div class="priority {{ $task->priority }}">

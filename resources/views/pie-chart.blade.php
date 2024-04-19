@@ -16,13 +16,13 @@
             data: {
                 labels: @json($data['labels']),
                 datasets: [{
-    label: 'Niveau de maîtrise des compétences',
+    label: 'Skill Proficiency Level',
     data: @json($data['data']),
     backgroundColor: [
-        'rgb(186,225,255)',
-      'rgb(186,255,201)',
-      'rgb(54, 162, 235)',
-      'rgb(0, 163, 108)'
+        'rgba(18, 31, 137)',
+      'rgba(106, 18, 137)',
+      'rgba(75, 192, 192, 1)',
+      'rgba(248, 203, 0)'
     ],
     hoverOffset: 4
   }]

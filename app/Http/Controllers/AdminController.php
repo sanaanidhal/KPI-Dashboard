@@ -227,10 +227,12 @@ class AdminController extends Controller
 
     // Calculate the scheduled task completion rate for each record and store the results in an array
     $sumcon =0;
+    $sumtotal=0;
     $values = [];
     foreach ($records as $record) {
         $scheduledTaskCompletionRate = ($record->completed_on_time / $record->total_tasks) * 100;
         $sumcon+=$record->completed_on_time;
+        $sumtotal+=$record->total_tasks;
         $values[] = $scheduledTaskCompletionRate;
     }
 
@@ -250,8 +252,12 @@ class AdminController extends Controller
 
  // Calculate the scheduled task completion rate for each record and store the results in an array
  $values1 = [];
+ $sumskill=0;
+ $sumskilltotal=0;
  foreach ($records1 as $record1) {
      $SKILLPROFICIENCYLEVEL = ($record1->note / $record1->notemax) * 100;
+     $sumskill+=$record1->note;
+     $sumskilltotal+=$record1->notemax;
      $values1[] = $SKILLPROFICIENCYLEVEL;
  }
 
@@ -263,7 +269,7 @@ class AdminController extends Controller
  //TASK 
  $tasks = Task::all();
 
-return view('admin.admin_dashboard', compact('avgM','lastyearMo','avgE','lastyear','sumcon','tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
+return view('admin.admin_dashboard', compact('sumskill','sumskilltotal','sumtotal','avgM','lastyearMo','avgE','lastyear','sumcon','tasks','projects','sum1','sum','avg1','avg','barChartData', 'pieChartData','anneesExterne','nbresExterne','anneesMobile', 'nbresMobile'));
     }
     
     public function AdminLogout(Request $request){
