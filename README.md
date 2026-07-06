@@ -1,66 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📊 KPI Dashboard — Sup'Com Junior Enterprise
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A full-stack internal management platform built with PHP/Laravel and MySQL, designed to track Key Performance Indicators for Sup'Com Junior Enterprise. Features distinct dashboards for administrators and standard users with real-time interactive charts.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 👤 Multi-Role Authentication
+- Separate login/register flows for Admins and Standard Users
+- Role-based access control throughout the application
+- Profile management for all users
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🔐 Admin Dashboard
+- Full access to KPI management — create, edit, delete KPI data
+- Project and task management with live updates
+- Interactive JavaScript charts for KPI visualization
+- User management
 
-## Learning Laravel
+### 📖 Standard User Dashboard
+- Read-only access to KPI charts and performance indicators
+- View recent projects and ongoing tasks
+- Profile update functionality
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📈 KPI Tracking
+- Interactive charts built with JavaScript for real-time data visualization
+- Monthly performance tracking with completion rate metrics
+- Project progress monitoring across the organization
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠 Tech Stack
 
-## Laravel Sponsors
+| Layer | Technology |
+|---|---|
+| Backend | PHP, Laravel |
+| Frontend | Blade Templates, HTML5, CSS3, SCSS, JavaScript |
+| Database | MySQL |
+| Authentication | Laravel Sanctum / Breeze |
+| Build Tools | Vite, NPM, Bootstrap |
+| Version Control | Git / GitHub (8 branches, 38+ commits) |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+git clone https://github.com/sanaanidhal/KPI-Dashboard.git
+cd KPI-Dashboard
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+Configure your database in `.env`:
+```env
+DB_CONNECTION=mysql
+DB_DATABASE=kpi_dashboard
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Then run:
+```bash
+php artisan migrate --seed
+php artisan serve
+npm run dev
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🔑 Demo Credentials
 
-## Security Vulnerabilities
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@supcomje.tn | password |
+| User | user@supcomje.tn | password |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🏗 Architecture
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+KPI-Dashboard/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── UserController.php      # Dashboard logic + KPI charts
+│   │   └── ProfileController.php
+│   └── Models/
+│       ├── Premier.php             # Monthly KPI data
+│       ├── Project.php             # Project tracking
+│       └── Second.php              # Secondary KPI metrics
+├── resources/views/
+│   ├── layouts/                    # Main layout
+│   ├── dashboard/                  # Admin + User dashboards
+│   └── auth/                       # Login + Register
+├── routes/
+│   └── web.php
+└── database/
+    └── migrations/
+```
+
+---
+
+**Organisation:** Sup'Com Junior Entreprise — Mandat 2023/2024
+
+---
+
+## 👨‍💻 Author
+
+**Sanaa Mohamed Nidhal**
+MSc Computer Science — University of Passau, Germany
+
+[![GitHub](https://img.shields.io/badge/GitHub-sanaanidhal-black?style=flat&logo=github)](https://github.com/sanaanidhal)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-sanaa--nidhal-blue?style=flat&logo=linkedin)](https://linkedin.com/in/sanaa-nidhal)
