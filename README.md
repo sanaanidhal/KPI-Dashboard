@@ -74,8 +74,8 @@ npm run dev
 
 | Role | Email | Password |
 |---|---|---|
-| Admin | admin@supcomje.tn | password |
-| User | user@supcomje.tn | password |
+| Admin | Admin@gmail.com | YourNewPassword |
+| User | nidhaltest@gmail.com | nidhaltest |
 
 ---
 
